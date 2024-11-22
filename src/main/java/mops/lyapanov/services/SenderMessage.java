@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SenderMessage {
 
-    private static final String URL = "http://localhost:8080/sendingMessage";
+    private static final String URL = "http://localhost:8080/controller/general/sendMessage";
 
     public static void sendingMessagesToIoTController(List<Message> messages) {
 
@@ -22,6 +22,8 @@ public class SenderMessage {
 
         try {
             String jsonBody = objectMapper.writeValueAsString(messages);
+//            System.out.println(jsonBody.substring(1, jsonBody.length() - 1));
+            System.out.println(jsonBody);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(URL))
@@ -34,8 +36,6 @@ public class SenderMessage {
             System.out.println("Response Code: " + response.statusCode());
             System.out.println("Response Body: " + response.body());
 
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

@@ -13,10 +13,8 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        messageList = MessageGenerator.generateMessages();
-
         while(true) {
-            System.out.println("Запрос пошеееееел");
+            messageList = MessageGenerator.generateMessages();
             SenderMessage.sendingMessagesToIoTController(messageList);
             Thread.sleep(10000);
         }
