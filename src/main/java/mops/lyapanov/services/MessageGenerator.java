@@ -22,13 +22,18 @@ public class MessageGenerator {
 
     static Random random = new Random();
 
-    public static List<Device> generateDevices() {
+    /**
+     * Генерируем 100 устройств с id от 1 до 100
+     */
+
+public static List<Device> generateDevices() {
         List<Device> devices = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            int id = random.nextInt(100, 999);
+//        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i <= 99; i++) {
+//            int id = random.nextInt(100, 999);
             Device device = new Device();
-            device.setId(Integer.toString(id));
-            device.setName("Device " + i);
+            device.setId(Integer.toString(i + 1));
+            device.setName("Device " + (i + 1));
             device.setType(devicesTypes.get(random.nextInt(3)));
             devices.add(device);
         }

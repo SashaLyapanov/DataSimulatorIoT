@@ -16,6 +16,8 @@ public class Main {
         while(true) {
             messageList = MessageGenerator.generateMessages();
             SenderMessage.sendingMessagesToIoTController(messageList);
+
+            //Каждый 10 секунд происходит отправка сообщений от 100 сгенерированных устройств
             Thread.sleep(10000);
         }
     }
